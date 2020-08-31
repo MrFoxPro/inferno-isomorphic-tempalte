@@ -5,7 +5,7 @@ import { renderToString } from "inferno-server";
 import path = require("path");
 import App from "../client/components/App/App";
 const server = express();
-const port = 80;
+const port = 1234;
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));

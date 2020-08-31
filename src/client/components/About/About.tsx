@@ -21,7 +21,7 @@ export default class About extends Component<IProps, IState> {
       return (
          <div>
             Simple Inferno SSR template
-            <p className="text">Hello, world!</p>
+            <p className={`text`}>Hello, world!</p>
             <button onClick={this.increment} className="button">
                Increment
             </button>

@@ -36,9 +36,8 @@ const fuseServerOptions: FuseBoxOptions = {
 };
 Sparky.task("clean", () => {
    /**Clean distribute (dist) folder */
-   Sparky.src("dist")
-      .clean("dist")
-      .exec();
+   Sparky.src("dist/")
+      .clean("dist/")
 });
 Sparky.task("config", () => {
    fuse = FuseBox.init(fuseOptions);
