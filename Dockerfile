@@ -1,6 +1,8 @@
-FROM node:9.11-jessie  
+FROM node:14
 WORKDIR /usr/src/app_name
 COPY . .
-RUN npm i
-EXPOSE 80
-CMD npm run dev
+RUN yarn
+RUN yarn build:server
+RUN yarn build:client
+EXPOSE 1234
+CMD yarn serve

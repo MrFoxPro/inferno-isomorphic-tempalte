@@ -1,15 +1,15 @@
-import cookieParser = require("cookie-parser");
+import cookieParser from "cookie-parser";
 import * as express from "express";
 import { StaticRouter } from "inferno-router";
 import { renderToString } from "inferno-server";
-import path = require("path");
+import path from "path";
 import App from "../client/components/App/App";
 const server = express();
 const port = 1234;
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
-server.use("/static", express.static(path.resolve("./dist/client")));
+server.use("/static", express.static(path.resolve("./dist")));
 
 server.use(cookieParser());
 
@@ -30,10 +30,11 @@ server.get("/*", (req, res) => {
    <html>
        <head>
            <title>My Universal App</title>
+           <link rel="stylesheet" type="text/css" href="./static/styles/styles.css" />
        </head>
        <body>
            <div id='root'>${renderToString(wrapper)}</div>
-           <script src='./static/bundle.js'></script>
+           <script src='./static/js/client.js'></script>
        </body>
    </html>
 `);
