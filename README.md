@@ -30,7 +30,7 @@ sudo docker run -it --publish 1234:1234 iit
 
 ```
 yarn
-yarn dev # Any save to the tsx files will re-compile.
+yarn dev # Any save to the tsx or css files will re-compile.
 ```
 
 # Notes
