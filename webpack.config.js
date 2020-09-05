@@ -1,13 +1,11 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-// https://medium.com/atticus-engineering/server-side-rendering-with-react-and-typescript-8cebb4400b3c
 
 module.exports = function(env, _) {
   const base = {
     mode: "production",
     entry: "./src/server/index.tsx", // Point to main file
     output: {
-      // path: __dirname + "/dist/server",
       path: path.resolve(process.cwd(), 'dist'),
       filename: "js/server.js",
       publicPath: '/',

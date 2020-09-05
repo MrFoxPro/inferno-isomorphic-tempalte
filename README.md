@@ -1,47 +1,39 @@
-# Simple Inferno Isomorphic (SSR) FuseBox template
-Includes:
--  Inferno 5.0.6
--  Express 4.16.0
--  TypeScript 2.9.1
--  FuseBox 3.2.2 (easy alternative to webpack)
--  Routing by inferno-router 5.0.6
--  Tests by FuseBox test runner and enzyme with [enzyme-adapter-inferno](https://github.com/bbc/enzyme-adapter-inferno)
-# Installation:
+# Simple Inferno Isomorphic (SSR) Webpack template
+
+Made with:
+
+- Inferno
+- Inferno Router
+- Express
+- TypeScript
+- Webpack
+
+# Installation
+
+## Local
+
 ```
-npm i
-
-npm run dev
+yarn
+yarn start
 ```
-If you are not Windows user, please change dev script in package.json: remove `set` word.  
-Note: debug mode works only for vscode (check out .vscode/launch.json)
-# Q&A:
 
-Q: Why npm run dev uses **node**, not **ts-node**?  
-A: https://github.com/TypeStrong/ts-node#programmatic
+and goto http://localhost:1234
 
-Q: Why in launch.json port set to 9229?  
-A: Node default inspect port is 9229 https://nodejs.org/en/docs/guides/debugging-getting-started/
-You can specify port by change --inspect=<PORT> in package.json and launch.json
+## Docker
 
-Q: How to debug both server and client?  
-A: Use "Start both" configuration. More: https://github.com/fuse-box/fuse-box/blob/master/docs/guides/debugging-with-vscode.md#server-debugging
+```
+sudo docker build . --tag iit
+sudo docker run -it --publish 1234:1234 iit
+```
 
-Q: Why we used bundle.js in our HTML template?  
-A: Explanation how it works:
-   1. The server renders markups with renderToString
-   2. We have got only plain text document without any JS
-   3. Bundle.js is loaded and create Inferno instance, that "clings" DOM
-   4. Inferno binds events  
-      Good explanation: https://medium.com/@justinjung04/react-server-side-rendering-and-hot-reloading-ffb87ca81a89
+# Develop
 
-Q: Why **ts-node** installed as devDependency?  
-A: https://stackoverflow.com/a/44249080/8086153
+```
+yarn
+yarn dev # Any save to the tsx files will re-compile.
+```
 
-Q: Why ```import "jsdom-global/register";``` in test file?  
-A: https://github.com/airbnb/enzyme/issues/341#issuecomment-263045603  
+# Notes
 
-Q: I have an error  
-A: Please submit new issue with detailed description of your problem
+- [Webpack tutorial](https://medium.com/atticus-engineering/server-side-rendering-with-react-and-typescript-8cebb4400b3c)
 
-Q: How to use it with Azure?  
-A: Create Azure Web App for Linux and upload docker container. Then you should set variable WEBSITES_PORT to 80 (or any other that you used in server/index.ts) in App settings section.
